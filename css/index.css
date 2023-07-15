@@ -70,6 +70,7 @@ p {
   flex-direction: column;
   text-align: center;
   margin: 0rem 2rem;
+  color: white;
 }
 .buttonsInAppForBigger {
   display: none;
@@ -129,6 +130,61 @@ p {
     min-width: 10rem;
     min-height: 2rem;
     margin: 0.3rem;
+  }
+  .pricing {
+    background-color: #4f4f4f;
+  }
+  .pricing h1,
+  h3 {
+    text-align: center;
+    color: #f5f5f5;
+  }
+  .pricing h3 {
+    text-decoration: underline;
+  }
+  .pricing p {
+    font-size: 13px;
+    line-height: 1.2;
+  }
+  .pricing .cardsInPricing {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    overflow-x: scroll;
+  }
+  .pricing .cardsInPricing .card {
+    border: 3px solid #50878e;
+    margin: 1rem;
+    display: flex;
+    min-height: 460px;
+    min-width: 211px;
+    flex-direction: column;
+
+    background-color: #4f4f4f;
+    border-radius: 10px;
+  }
+  .pricing .cardsInPricing .card h3 {
+    text-align: center;
+  }
+  .pricing .cardsInPricing .card li {
+    list-style: disc;
+    color: wheat;
+  }
+  .pricing .headerPart {
+    min-height: 337px;
+  }
+  .pricing .cardsInPricing .card .buttonsDiv {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .pricing .cardsInPricing .card button {
+    border: 1px solid white;
+    width: 80%;
+    margin: 1rem 0rem;
   }
 }
 
@@ -192,6 +248,56 @@ p {
     min-height: 2.5rem;
     border: 1px solid white;
     box-shadow: 3px 2px 17px 4px #717171;
+  }
+  .pricing {
+    background-color: #4f4f4f;
+  }
+  .pricing h1,
+  h3 {
+    text-align: center;
+    color: #f5f5f5;
+  }
+  .pricing h3 {
+    text-decoration: underline;
+  }
+  .pricing .cardsInPricing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .pricing .cardsInPricing .card {
+    border: 3px solid #50878e;
+    margin: 1rem;
+    display: flex;
+    min-height: 460px;
+    min-width: 270px;
+    flex-direction: column;
+
+    background-color: #4f4f4f;
+    border-radius: 10px;
+  }
+  .pricing .cardsInPricing .card h3 {
+    text-align: center;
+  }
+  .pricing .cardsInPricing .card li {
+    list-style: disc;
+    color: wheat;
+  }
+  .pricing .headerPart {
+    min-height: 337px;
+  }
+  .pricing .cardsInPricing .card .buttonsDiv {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .pricing .cardsInPricing .card button {
+    border: 1px solid white;
+    width: 80%;
+    margin: 1rem 0rem;
   }
 }
 @media screen and (max-width: 800px) {
