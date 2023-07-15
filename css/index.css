@@ -1,89 +1,220 @@
-body{
-    display: flex;
-    flex-direction: column;
-    font-family: "Rubik", sans-serif;
+.navbar img {
+  max-width: 100px;
 }
-.navbar{
-    font-size: 1.2rem;
- display: flex;
- justify-content: center;
- align-items: center;
- background-color: aliceblue;
+.navbar {
+  background-color: rgba(94, 135, 142, 255);
+}
 
+.navbar a {
+  color: white;
 }
-.navbar img{
-    max-width: 100px;
-    max-height: 100px;
+.head {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(94, 135, 142, 255);
+  color: white;
 }
-.heading{
-    display: flex;
-    flex-direction: column;
- margin: 0rem 0rem;
-    
-    background-color: aliceblue;
+.head .mainBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 2rem;
+}
+.head .mainBody button {
+  min-width: 250px;
+  min-height: 45px;
+  border-radius: 10px;
+  border: 0.5px solid white;
+  margin: 1rem;
+}
+.head .mainBody .imagesInHead {
+  display: flex;
+  flex-direction: row;
+}
+.head .mainBody img {
+  max-width: 70px;
+  max-height: 70px;
+  margin: 0.2rem;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
+@media screen and (max-width: 800px) {
+  .head .mainBody h1 {
+    font-size: 25px;
+  }
+  .head .mainBody h2 {
+    font-size: 19px;
+  }
+  .head .mainBody p {
+    font-size: 15px;
+  }
+  .head .mainBody button {
+    max-width: 200px;
+    min-height: 45px;
+    border-radius: 10px;
+    border: 0.5px solid white;
+    margin: 0rem;
+  }
+}
 
-}
-.heading h1,h3{
+@media screen and (min-width: 801px) {
+  .smallSize {
+    display: none;
+  }
+  .advantages .bigSize {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 34px;
+    column-gap: 34px;
+    border: 2px solid black;
+    margin: 0rem 5rem;
+  }
+
+  .advantages .bigSize .cards {
     text-align: center;
-    color: #8c00fe;
-} 
-.heading img{
-   overflow: hidden;
-    aspect-ratio: 3/2;
-    object-fit: contain;
-    border-radius: 25px;
-  max-height: 650px;
-   
-  
-}
-.formBody{
-    border: 1px solid #bbeba1;
-    box-shadow: 2px 2px 20px 4px rgb(217, 217, 217);
-    border-radius: 9px;
     display: flex;
-    flex-direction: row;
-margin: 2rem 4rem;
-padding: 3rem;
-background-color: aliceblue;
+    justify-content: center;
+    max-height: 70%;
+    margin: 6rem;
+    border: 1px solid red;
+  }
 }
-.formBody img{
-    text-align: center;
-    margin: auto;
-}
-.formBody form{
-  
+@media screen and (max-width: 800px) {
+  .head {
+    flex-wrap: wrap;
+  }
+  .bigSize {
+    display: none;
+  }
+
+  .navbar {
     display: flex;
-    flex-direction: column;
-}
-.formBody form input,#validationCustomUsername{
-    border: 2px solid #bbeba1;
-}
-.formBody form input,#validationCustomUsername{
-    min-width: 50vw;
-}
-footer{
-    text-align: center;
-}
-footer .imagesInFooter{
-    display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
-  
-}
-.imagesInFooter img{
-    overflow: hidden;
+  }
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  * {
+    box-sizing: border-box;
+  }
 
-    max-width: 50px;
-    max-height: 50px;
-    margin: 2px 2px;
-    padding: 2px 2px;
-}
-@media screen and (max-width: 500px){
-    .formBody{
-        flex-direction: column;
-        margin: 2rem 1.5rem;
-padding: 1rem;
+  .smallSize {
+    display: block;
+  }
+  .mySlides {
+    display: block;
+  }
+  .advantages h1 {
+    text-align: center;
+    color: white;
+  }
+  .advantages img {
+    vertical-align: middle;
+    aspect-ratio: 3/2;
+    max-height: 600px;
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 90%;
+    position: relative;
+    margin: auto;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .goToFade {
+    animation-name: goToFade;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes goToFade {
+    from {
+      opacity: 0.4;
     }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev,
+    .next,
+    .text {
+      font-size: 11px;
+    }
+  }
 }
