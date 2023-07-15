@@ -41,6 +41,29 @@
   aspect-ratio: 3/2;
   object-fit: contain;
 }
+.mobileAppInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(94, 135, 142, 255);
+}
+.mobileAppInfo h1 {
+  float: left;
+}
+.imageInApp img {
+  filter: drop-shadow(rgba(128, 128, 128, 0.4) 10px 10px 10px);
+}
+.actualContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.buttonsInApp {
+  display: flex;
+  flex-direction: row;
+}
 @media screen and (max-width: 800px) {
   .head .mainBody h1 {
     font-size: 25px;
@@ -64,23 +87,48 @@
   .smallSize {
     display: none;
   }
+  .advantages {
+    background-color: #4f4f4f;
+  }
   .advantages .bigSize {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 34px;
     column-gap: 34px;
-    border: 2px solid black;
-    margin: 0rem 5rem;
+    margin: 0rem 0rem;
+    padding: 5rem;
   }
-
+  .bigContainer {
+    margin: 0rem 15rem;
+  }
+  p {
+    color: white;
+    text-align: center;
+  }
+  .advantages h1 {
+    color: white;
+    text-align: center;
+  }
   .advantages .bigSize .cards {
     text-align: center;
     display: flex;
     justify-content: center;
-    max-height: 70%;
-    margin: 6rem;
-    border: 1px solid red;
+    max-height: 100%;
+    max-width: 100%;
+
+    border-radius: 5px;
+  }
+
+  .advantages .bigSize .cards img {
+    aspect-ratio: 3/2;
+    opacity: 0.55;
+    display: block;
+    border-radius: 5px;
+  }
+  .advantages .bigSize .cards img:hover {
+    transition: all ease-in-out 0.3s;
+    opacity: 1;
   }
 }
 @media screen and (max-width: 800px) {
