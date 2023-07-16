@@ -1,3 +1,16 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Climate Crisis", cursive;
+  font-family: "Quicksand", sans-serif;
+}
+.pricing .cardsInPricing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
 .navbar img {
   max-width: 100px;
 }
@@ -78,6 +91,7 @@ p {
 .buttonsInAppForSmaller {
   display: none;
 }
+
 @media screen and (max-width: 600px) {
   .actualContainer {
     display: flex;
@@ -192,6 +206,9 @@ p {
   .smallSize {
     display: none;
   }
+  .containerInGroupClassesBiggerScreen {
+    display: block;
+  }
   .advantages {
     background-color: #4f4f4f;
   }
@@ -263,8 +280,6 @@ p {
   .pricing .cardsInPricing {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
   }
   .pricing .cardsInPricing .card {
     border: 3px solid #50878e;
@@ -299,12 +314,64 @@ p {
     width: 80%;
     margin: 1rem 0rem;
   }
+  .containerInGroupClassesBiggerScreen {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #4f4f4f;
+    padding: 5rem;
+  }
+
+  .containerInGroupClassesBiggerScreen .sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  .containerInGroupClassesBiggerScreen .reverseSec {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  .containerInGroupClassesBiggerScreen .sections .infoInGroupClass p,
+  h3 {
+    color: white;
+  }
+  .containerInGroupClassesBiggerScreen .sections .infoInGroupClass {
+    display: flex;
+
+    max-width: 500px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0rem 2rem;
+  }
+  .containerInGroupClassesBiggerScreen .sections .infoInGroupClass button {
+    min-width: 10rem;
+    min-height: 2rem;
+    border: 1px solid white;
+  }
+  .containerInGroupClassesBiggerScreen .sections .imageDivInGroup img {
+    aspect-ratio: 3/2;
+    filter: grayscale(100);
+    filter: brightness(1);
+    max-width: 500px;
+    padding: 1rem;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+  }
 }
 @media screen and (max-width: 800px) {
   .head {
     flex-wrap: wrap;
   }
   .bigSize {
+    display: none;
+  }
+  .containerInGroupClassesBiggerScreen {
     display: none;
   }
 
@@ -328,6 +395,15 @@ p {
   .mySlides {
     display: block;
   }
+  .mySlides h1 {
+    text-align: center;
+    color: white;
+  }
+  .mySlides img {
+    vertical-align: middle;
+    aspect-ratio: 3/2;
+    max-height: 600px;
+  }
   .advantages h1 {
     text-align: center;
     color: white;
@@ -340,6 +416,7 @@ p {
 
   /* Slideshow container */
   .slideshow-container {
+    display: block;
     max-width: 90%;
     position: relative;
     margin: auto;
@@ -433,5 +510,24 @@ p {
     .text {
       font-size: 11px;
     }
+    .imageInApp img {
+      text-align: center;
+      max-width: 500px;
+      max-height: 300px;
+    }
+    .buttonsInAppForSmaller button {
+      font-size: 0.8rem;
+      min-width: 6rem;
+      min-height: 1rem;
+      max-width: 80px;
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+  .pricing .cardsInPricing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
