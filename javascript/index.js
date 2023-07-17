@@ -61,3 +61,17 @@ function showSlides1(n) {
   slide[slideIndex1 - 1].style.display = "block";
   dot[slideIndex1 - 1].className += " active";
 }
+
+var GoToLogInPage = document.getElementById("GoToLogInPage");
+
+GoToLogInPage.addEventListener("click", function () {
+  alert("hi");
+  window.location.href("logInpage.html");
+});
+var goToLogInPage = document.getElementsByClassName("goToLogInPage");
+
+for (var i = 0; i < goToLogInPage.length; i++) {
+  goToLogInPage[i].addEventListener("click", function () {
+    alert("Clicked");
+  });
+}

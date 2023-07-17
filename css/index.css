@@ -5,6 +5,7 @@ body {
   font-family: "Climate Crisis", cursive;
   font-family: "Quicksand", sans-serif;
 }
+
 .pricing .cardsInPricing {
   display: flex;
   flex-direction: row;
@@ -38,6 +39,7 @@ p {
   text-align: center;
   line-height: 1.5;
   margin-top: 2rem;
+  width: 100%;
 }
 .head .mainBody button {
   min-width: 250px;
@@ -45,6 +47,7 @@ p {
   border-radius: 10px;
   border: 0.5px solid white;
   margin: 1rem;
+  background-color: rgba(120, 200, 197, 255);
 }
 .head .mainBody .imagesInHead {
   display: flex;
@@ -57,6 +60,11 @@ p {
   aspect-ratio: 3/2;
   object-fit: contain;
 }
+.imageBody img {
+  filter: drop-shadow(rgba(128, 128, 128, 0.4) 10px 10px 10px);
+  margin-top: 2rem;
+  max-width: 100%;
+}
 .mobileAppInfo {
   display: flex;
   flex-direction: column;
@@ -67,10 +75,15 @@ p {
 .mobileAppInfo h1 {
   float: left;
 }
-.imageInApp img {
+.imageBody img {
   filter: drop-shadow(rgba(128, 128, 128, 0.4) 10px 10px 10px);
 
   margin-top: 2rem;
+}
+.imageInApp .img-fluid {
+  max-width: 85%;
+  height: auto;
+  max-height: 100%;
 }
 .actualContainer {
   display: flex;
@@ -185,7 +198,54 @@ p {
   width: 100%;
   filter: brightness(0.5);
 }
+.containerInFooter {
+  background-color: #383838;
+  color: white;
+}
+.topSideInFooter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
+}
+.topSideInFooter > * {
+  list-style: none;
+}
+.topSideInFooter ul {
+  padding: 1rem;
+}
+.topSideInFooter .imageLinkInfooter {
+  display: flex;
+  flex-direction: column;
 
+  padding: 1rem;
+}
+.topSideInFooter .imageLinkInfooter img {
+  max-width: 50px;
+  max-height: 50px;
+}
+.logoInFooter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.logoInFooter img {
+  max-width: 150px;
+  max-height: 150px;
+}
+.bottomSideLeft {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.bottomSideLeft .someotherInfoinFooter {
+  float: right;
+}
+.bottomSideLeft .someotherInfoinFooter a {
+  margin: 0rem 3rem;
+  text-decoration: none;
+  color: white;
+}
 @media screen and (max-width: 600px) {
   .actualContainer {
     display: flex;
@@ -238,6 +298,7 @@ p {
     min-width: 10rem;
     min-height: 2rem;
     margin: 0.3rem;
+    background-color: rgba(120, 200, 197, 255);
   }
   .pricing {
     background-color: #4f4f4f;
@@ -245,7 +306,6 @@ p {
   .pricing h1,
   h3 {
     text-align: center;
-    color: #f5f5f5;
   }
   .pricing h3 {
     text-decoration: underline;
@@ -293,6 +353,7 @@ p {
     border: 1px solid white;
     width: 80%;
     margin: 1rem 0rem;
+    background-color: rgba(120, 200, 197, 255);
   }
   .schedule::before {
     content: "";
@@ -310,6 +371,20 @@ p {
     flex-direction: column;
 
     background-color: #4f4f4f;
+  }
+  .bottomSideLeft .someotherInfoinFooter a {
+    margin: 0rem 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem;
+  }
+  .logoInFooter img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .topSideInFooter .imageLinkInfooter img {
+    max-width: 30px;
+    max-height: 30px;
   }
 }
 
@@ -373,6 +448,7 @@ p {
     min-height: 2.5rem;
     border: 1px solid white;
     box-shadow: 3px 2px 17px 4px #717171;
+    background-color: rgba(120, 200, 197, 255);
   }
   .pricing {
     background-color: #4f4f4f;
@@ -421,6 +497,7 @@ p {
     border: 1px solid white;
     width: 80%;
     margin: 1rem 0rem;
+    background-color: rgba(120, 200, 197, 255);
   }
   .containerInGroupClassesBiggerScreen {
     display: flex;
@@ -465,6 +542,7 @@ p {
     min-width: 10rem;
     min-height: 2rem;
     border: 1px solid white;
+    background-color: rgba(120, 200, 197, 255);
   }
   .containerInGroupClassesBiggerScreen .sections .imageDivInGroup img {
     aspect-ratio: 3/2;
@@ -711,6 +789,7 @@ p {
       min-width: 6rem;
       min-height: 1rem;
       max-width: 80px;
+      background-color: rgba(120, 200, 197, 255);
     }
   }
 }
@@ -751,5 +830,32 @@ p {
     width: 100%;
     z-index: -1;
     opacity: 0.8;
+  }
+}
+@media screen and (max-width: 350px) {
+  .bottomSideLeft .someotherInfoinFooter a {
+    margin: 0rem 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 0.7rem;
+  }
+  .logoInFooter img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+@media screen and (max-width: 300px) {
+  footer .containerInFooter .topSideInFooter,
+  .someotherInfoinFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bottomSideLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
