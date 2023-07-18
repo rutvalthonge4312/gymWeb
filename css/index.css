@@ -7,8 +7,8 @@ body {
 }
 
 .pricing .cardsInPricing {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   flex-wrap: nowrap;
   overflow-x: scroll;
 }
@@ -464,13 +464,15 @@ p {
   .pricing .cardsInPricing {
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
   .pricing .cardsInPricing .card {
     border: 3px solid #50878e;
     margin: 1rem;
     display: flex;
     min-height: 460px;
-    min-width: 270px;
+    min-width: 260px;
+    max-width: 265px;
     flex-direction: column;
 
     background-color: #4f4f4f;
@@ -797,8 +799,6 @@ p {
   .pricing .cardsInPricing {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
   }
 }
 @media screen and (min-width: 800px) and (max-width: 1200px) {
