@@ -6,6 +6,8 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: "Climate Crisis", cursive;
+  font-family: "Quicksand", sans-serif;
 }
 .navbar a {
   color: white;
