@@ -1,12 +1,13 @@
 body {
   background-color: #4f4f4f;
-  background-color: rgba(94, 135, 142, 255);
+
   font-family: "Climate Crisis", cursive;
   font-family: "Quicksand", sans-serif;
   background-image: url(/images/gymCardImage3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 .navbar a {
   color: white;
