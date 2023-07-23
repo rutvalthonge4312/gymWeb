@@ -20,6 +20,9 @@
       href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Quicksand:wght@300&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Quicksand:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
@@ -51,16 +54,16 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link scrollHere" href="#adv"  onclick="scrollToSection('adv')">Our Facilities</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="#mobile">Mobile Application</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Log In</a>
+                <a class="nav-link" href="#price">Pricing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sign Up</a>
+                <a class="nav-link" href="#timing">Schedule</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="logInPageForAdmin.html">Admin Page</a>
@@ -117,7 +120,7 @@
         <img class="img-fluid" src="../images/OkGymImage.png" alt="" />
       </div>
     </div>
-    <div class="advantages">
+    <div class="advantages" id="adv">
       <div><h1 style="color: white">Our Facilities</h1></div>
       <div class="properContainer">
         <div class="smallSize">
@@ -182,7 +185,7 @@
       </div>
     </div>
 
-    <div class="mobileAppInfo">
+    <div class="mobileAppInfo" id="mobile">
       <div class="actualContainer">
         <div class="infoforApp">
           <h1>Mobile Application</h1>
@@ -231,7 +234,7 @@ Calorie counter and healthy recipes.
       </div>
     </div>
 
-    <div class="pricing">
+    <div class="pricing" id="price">
       <h1>Pricing</h1>
       <div class="cardsInPricing">
         <div class="card">
@@ -302,7 +305,7 @@ Calorie counter and healthy recipes.
     <div class="trainers"></div>
 
 
-    <div class="groupClasses">
+    <div class="groupClasses" id="class">
       <div class="containerInGroupClassesBiggerScreen">
         <div class="sections">
           <div class="imageDivInGroup">
@@ -417,7 +420,7 @@ They include movements that collectively use muscles, joints, and core stability
       </div>
     </div>
 
-    <div class="schedule">
+    <div class="schedule" id="timing">
       <div class="innerSchedule">
         <h1>Schedule</h1>
        <div class="cardsInSchedule">
@@ -558,6 +561,7 @@ They include movements that collectively use muscles, joints, and core stability
           </div>
         </div>
     </footer>
+  
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

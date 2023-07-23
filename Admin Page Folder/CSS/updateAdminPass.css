@@ -1,6 +1,6 @@
 body {
   background-color: rgba(94, 135, 142, 255);
-
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,4 +88,8 @@ body {
   .formBody form {
     width: 100%;
   }
+}
+#BackButton:hover {
+  border: 1px solid white;
+  transition: all ease-in-out 0.5s;
 }

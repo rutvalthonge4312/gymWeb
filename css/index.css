@@ -4,8 +4,17 @@ html {
 body {
   font-family: "Climate Crisis", cursive;
   font-family: "Quicksand", sans-serif;
+  background-color: #4f4f4f;
 }
-
+h1,
+h3,
+h2 {
+  font-family: "Climate Crisis", cursive;
+  font-family: "Quicksand", sans-serif;
+}
+p {
+  color: white;
+}
 .pricing .cardsInPricing {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -328,7 +337,7 @@ p {
     min-height: 460px;
     min-width: 211px;
     flex-direction: column;
-
+    overflow-x: hidden;
     background-color: #4f4f4f;
     border-radius: 10px;
   }
@@ -337,7 +346,7 @@ p {
   }
   .pricing .cardsInPricing .card li {
     list-style: disc;
-    color: wheat;
+    color: white;
   }
   .pricing .headerPart {
     min-height: 337px;
@@ -483,7 +492,7 @@ p {
   }
   .pricing .cardsInPricing .card li {
     list-style: disc;
-    color: wheat;
+    color: white;
   }
   .pricing .headerPart {
     min-height: 337px;
@@ -858,4 +867,17 @@ p {
     justify-content: center;
     align-items: center;
   }
+}
+.topButton {
+  display: block;
+  position: sticky;
+  bottom: 0px;
+  top: 1px;
+  float: right;
+  background: transparent;
+}
+.topButton button {
+  background: transparent;
+  border-radius: 5px;
+  margin: 1rem;
 }

@@ -36,14 +36,12 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
-
   z-index: 1;
   color: white;
 }
 .logInform h1 {
   font-family: "Climate Crisis", cursive;
   font-family: "Quicksand", sans-serif;
-
   color: #e0e0e0;
 }
 .logInform .buttonDiv {
@@ -75,6 +73,13 @@ body {
 .imageSection {
   width: 40vw;
   height: 40vw;
+}
+#BackButton {
+  color: white;
+}
+#BackButton:hover {
+  border: 1px solid white;
+  transition: all ease-in-out 0.5s;
 }
 @media screen and (max-width: 850px) {
   .logInform form,

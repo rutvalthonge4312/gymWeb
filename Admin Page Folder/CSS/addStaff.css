@@ -8,6 +8,7 @@ body {
   color: white;
   font-family: "Climate Crisis", cursive;
   font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
 }
 .navbar a {
   color: white;
@@ -44,4 +45,8 @@ body {
   .mainConatiner form {
     padding: 1rem;
   }
+}
+#BackButton:hover {
+  border: 1px solid white;
+  transition: all ease-in-out 0.5s;
 }

@@ -60,3 +60,7 @@ form {
     min-height: 600px;
   }
 }
+#BackButton:hover {
+  border: 1px solid white;
+  transition: all ease-in-out 0.5s;
+}
