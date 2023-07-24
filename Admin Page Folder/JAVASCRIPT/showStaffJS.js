@@ -35,6 +35,7 @@ fetch(request)
     }
   })
   .catch((err) => {
+    alert("Server Is Not Available at this Movement!Try After some time");
     console.log(err);
   });
 

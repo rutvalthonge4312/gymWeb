@@ -46,6 +46,7 @@ logInButtonInLogInPage.addEventListener("click", function () {
       }
     })
     .catch((err) => {
+      alert("Server is Unavaiable at this Moment!Try after some time");
       console.log(err);
     });
 
