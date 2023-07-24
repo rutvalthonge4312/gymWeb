@@ -1,23 +1,21 @@
 var logInButtonInLogInPage = document.getElementById("logInButtonInLogInPage");
-var body = document.body;
-
-/*logInButtonInLogInPage.addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent form submission behavior
-  window.location.href = "Admin Page Folder/adminPageGym.html";
-});*/
-
-let edtPassword = document.getElementById("password");
-
-let edtUsername = document.getElementById("username");
-
+var Username = document.getElementById("name");
+var mobileNumber = document.getElementById("mobileNumber");
+var email = document.getElementById("email");
+var address = document.getElementById("address");
+var salary = document.getElementById("salary");
+var position = document.getElementById("position");
 logInButtonInLogInPage.addEventListener("click", function () {
   event.preventDefault();
-  var apiUrl = "http://localhost/GYM_API/index.php/user/signin";
+  var apiUrl = "http://localhost/GYM_API/index.php/user/addStaff";
 
-  console.log(edtUsername.value);
   var params = {
-    username: edtUsername.value,
-    password: edtPassword.value,
+    name: Username.value,
+    mobileNumber: mobileNumber.value,
+    email: email.value,
+    address: address.value,
+    salary: salary.value,
+    position: position.value,
   };
 
   // console.log("payload" + JSON.stringify(params.values));
@@ -40,7 +38,7 @@ logInButtonInLogInPage.addEventListener("click", function () {
     .then((responseJson) => {
       console.log(JSON.stringify(responseJson));
       if (responseJson.status == 200) {
-        window.location.href = "Admin Page Folder/adminPageGym.html";
+        alert("Staff Added!");
       } else {
         alert("Wrong Credentials");
       }
