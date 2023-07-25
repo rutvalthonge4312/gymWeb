@@ -10,6 +10,10 @@ class UserModel extends Database
     {
         return $this->select("SELECT * FROM customer ORDER BY CustomerId ASC LIMIT ?", ["i", $limit]);
     }
+    public function getSubscription($limit)
+    {
+        return $this->select("SELECT name FROM subscription ORDER BY Subid ASC LIMIT ?", ["i", $limit]);
+    }
 
     public function checkCredentials($username, $password)
     {
