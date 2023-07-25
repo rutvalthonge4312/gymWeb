@@ -495,7 +495,7 @@ p {
     color: white;
   }
   .pricing .headerPart {
-    min-height: 337px;
+    min-height: 385px;
   }
   .pricing .cardsInPricing .card .buttonsDiv {
     display: flex;
