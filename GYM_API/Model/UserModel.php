@@ -12,8 +12,9 @@ class UserModel extends Database
     }
     public function getSubscription($limit)
     {
-        return $this->select("SELECT name FROM subscription ORDER BY Subid ASC LIMIT ?", ["i", $limit]);
+        return $this->select("SELECT * FROM subscription ORDER BY Subid ASC LIMIT ?", ["i", $limit]);
     }
+
 
     public function checkCredentials($username, $password)
     {
@@ -22,6 +23,10 @@ class UserModel extends Database
     public function addStaff($name, $email, $mobileNumber, $salary, $position, $address)
     {
         return $this->insert("insert into staff (name,email,mobileNumber,salary,position,address) values ('$name','$email',$mobileNumber,$salary,'$position','$address')");
+    }
+    public function addCustomer($name, $email, $mobileNumber, $amount, $duration, $subscriptionName, $startingDate)
+    {
+        return $this->insert("insert into customer (name,email,mobileNumber,amount,duration,subscriptionName,startingDate) values ('$name','$email',$mobileNumber,$amount,'$duration','$subscriptionName','$startingDate')");
     }
 
     public function removeStudent($roll)

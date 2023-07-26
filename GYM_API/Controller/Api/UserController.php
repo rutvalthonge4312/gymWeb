@@ -115,6 +115,43 @@ class UserController extends BaseController
             );
         }
     }
+    public function getSubscriptionDetailAction()
+    {
+        $strErrorDesc = '';
+        $requestMethod = $_SERVER["REQUEST_METHOD"];
+        $arrQueryStringParams = $this->getQueryStringParams();
+        if (strtoupper($requestMethod) == 'GET') {
+            try {
+                $userModel = new UserModel();
+                $intLimit = 100;
+                if (isset($arrQueryStringParams['limit']) && $arrQueryStringParams['limit']) {
+                    $intLimit = $arrQueryStringParams['limit'];
+                }
+                $arrUsers = $userModel->getSubscriptionDetail($intLimit);
+                // $responseData = json_encode($arrUsers);
+                $responseData = '{"status":200,"message":"List Of subscriptions","data":' . json_encode($arrUsers) . '}';
+
+            } catch (Error $e) {
+                $strErrorDesc = $e->getMessage() . 'Something went wrong! Please contact support.';
+                $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+            }
+        } else {
+            $strErrorDesc = 'Method not supported';
+            $strErrorHeader = 'HTTP/1.1 422 Unprocessable Entity';
+        }
+        // send output 
+        if (!$strErrorDesc) {
+            $this->sendOutput(
+                $responseData,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+            );
+        } else {
+            $this->sendOutput(
+                json_encode(array('error' => $strErrorDesc)),
+                array('Content-Type: application/json', $strErrorHeader)
+            );
+        }
+    }
 
     public function signinAction()
     {
@@ -195,6 +232,67 @@ class UserController extends BaseController
                         $arrUsers = $userModel->addStaff($name, $email, $mobileNumber, $salary, $position, $address);
                         if ($arrUsers) {
                             $responseData = '{"status":200,"message":"Staff Added Successfully","data":' . json_encode($arrUsers) . '}';
+                        } else {
+                            $strErrorDesc = 'User Credentials Wrong';
+                            $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';
+                        }
+                    }
+                } else {
+                    $strErrorDesc = 'Please enter credentials';
+                    $strErrorHeader = 'HTTP/1.1 200 OK';
+                }
+            } catch (Error $e) {
+                $strErrorDesc = $e->getMessage() . 'Something went wrong! Please contact support.';
+                $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+            }
+        } else {
+            $strErrorDesc = 'Method not supported';
+            $strErrorHeader = 'HTTP/1.1 422 Unprocessable Entity';
+        }
+        // send output 
+        if (!$strErrorDesc) {
+            $this->sendOutput(
+                $responseData,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+            );
+        } else {
+            $this->sendOutput(
+                json_encode(array('error' => $strErrorDesc)),
+                array('Content-Type: application/json', $strErrorHeader)
+            );
+        }
+    }
+
+    public function addCustomerAction()
+    {
+        $strErrorDesc = '';
+        $requestMethod = $_SERVER["REQUEST_METHOD"];
+
+        // echo print_r($_SERVER);
+        if (strtoupper($requestMethod) == 'POST') {
+            try {
+                $userModel = new UserModel();
+                $name;
+                $email;
+                $mobileNumber;
+                $amount;
+                $duration;
+                $subscriptionName;
+                $startingDate;
+
+                if ((isset($_POST['name']) && $_POST['name']) && (isset($_POST['email']) && $_POST['email']) && (isset($_POST['mobileNumber']) && $_POST['mobileNumber']) && (isset($_POST['amount']) && $_POST['amount']) && (isset($_POST['duration']) && $_POST['duration']) && (isset($_POST['subscriptionName']) && $_POST['subscriptionName']) && (isset($_POST['startingDate']) && $_POST['startingDate'])) {
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $mobileNumber = $_POST['mobileNumber'];
+                    $amount = $_POST['amount'];
+                    $duration = $_POST['duration'];
+                    $subscriptionName = $_POST['subscriptionName'];
+                    $startingDate = $_POST['startingDate'];
+
+                    if ($name && $email && $mobileNumber && $amount && $duration && $subscriptionName && $startingDate) {
+                        $arrUsers = $userModel->addCustomer($name, $email, $mobileNumber, $amount, $duration, $subscriptionName, $startingDate);
+                        if ($arrUsers) {
+                            $responseData = '{"status":200,"message":"Customer Added Successfully","data":' . json_encode($arrUsers) . '}';
                         } else {
                             $strErrorDesc = 'User Credentials Wrong';
                             $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';
