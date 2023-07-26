@@ -497,17 +497,12 @@ p {
   .pricing .headerPart {
     min-height: 385px;
   }
-  .pricing .cardsInPricing .card .buttonsDiv {
-    display: flex;
 
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-  }
   .pricing .cardsInPricing .card button {
     border: 1px solid white;
     width: 80%;
-    margin: 1rem 0rem;
+    margin: 1rem auto;
+    text-align: center;
     background-color: rgba(120, 200, 197, 255);
   }
   .containerInGroupClassesBiggerScreen {

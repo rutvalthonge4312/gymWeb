@@ -75,3 +75,62 @@ for (var i = 0; i < goToLogInPage.length; i++) {
     alert("Clicked");
   });
 }
+
+//var optionInput = document.getElementById("optionInput");
+
+var apiUrl = "http://localhost/GYM_API/index.php/user/getSubscription?limit=50";
+const request = new Request(apiUrl, {
+  method: "GET",
+});
+fetch(request)
+  .then((response) => response.json())
+  .then((responseJson) => {
+    if (responseJson.status == 200) {
+      let cardsInPricing = document.getElementById("cardsPricing");
+      console.log("hi Data Found!");
+      console.log(responseJson.data);
+      const arr = [];
+      for (var j = 0; j < responseJson.data.length; j++) {
+        arr[j] = responseJson.data[j];
+      }
+
+      for (var i = 0; i < j; i++) {
+        let cardNew = document.createElement("div");
+        cardNew.setAttribute("class", "card");
+
+        let option = document.createElement("h3");
+        let list = document.createElement("ul");
+        var li = document.createElement("li");
+        let button = document.createElement("button");
+
+        button.setAttribute("class", "btn");
+        cardNew.setAttribute("class", "card");
+        let optionText = document.createTextNode(arr[i].name);
+        option.appendChild(optionText);
+        cardNew.appendChild(option);
+        /* let attributeInArray = [];
+        for (let m = 0; m < 8; m++) {
+          attributeInArray[m] = arr[i][j];
+          console.log(attributeInArray[i][j]);
+        }*/
+
+        for (var l = 0; l < 8; l++) {
+          var base = `desc${l}`;
+          console.log(typeof base);
+          let listText = document.createTextNode(arr[i][base]);
+          li.appendChild(listText);
+          list.appendChild(li);
+          cardNew.appendChild(list);
+          var li = document.createElement("li");
+        }
+        let buttonText = document.createTextNode(arr[i].fees + "Rs");
+        button.appendChild(buttonText);
+        cardNew.appendChild(button);
+
+        cardsInPricing.appendChild(cardNew);
+      }
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });
