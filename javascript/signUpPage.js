@@ -5,22 +5,9 @@ var subscriptionNames = document.getElementsByClassName("optionInput");
 var duration = document.getElementById("duration");
 var subscriptionName = document.getElementById("subscriptionName");
 var startingDate = document.getElementById("startingDate");
-
 var takeAdmissionButton = document.getElementById("takeAdmissionButton");
 var subscriptionName = document.getElementById("subscriptionName");
 var option = document.getElementsByTagName("option");
-
-var dropDown = document.getElementsByTagName("option");
-var idOfoption;
-var dropDownPressed = (e) => {
-  idOfoption = e.target.id;
-  console.log(e.target.id);
-};
-
-for (let option of dropDown) {
-  event.preventDefault();
-  option.addEventListener("click", dropDownPressed);
-}
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
@@ -46,7 +33,7 @@ for (let option of dropDown) {
   });
 })();
 var optionInput = document.getElementById("optionInput");
-
+var subscriptionName;
 var apiUrl = "http://localhost/GYM_API/index.php/user/getSubscription?limit=50";
 var arr = [];
 const request = new Request(apiUrl, {
@@ -67,6 +54,7 @@ fetch(request)
         let option = document.createElement("option");
         option.setAttribute("id", element.fees);
         option.setAttribute("class", "optionsInSub");
+        option.setAttribute("value", element.name);
 
         let optionText = document.createTextNode(element.name);
         option.appendChild(optionText);
@@ -75,7 +63,21 @@ fetch(request)
         //console.log(option.length);
       });
 
-      var subscriptionName;
+      /*for (var o = 0; o < dropDown.length; o++) {
+        alert("hi");
+        dropDown[o].addEventListener("change", function () {
+          subscriptionName = this.id;
+          console.log(subscriptionName);
+        });
+      }*/
+
+      /* for (let tempData in dropDown) {
+        tempData.addEventListener("change", function () {
+          subscriptionName = this.id;
+          console.log(subscriptionName);
+        });
+      }*/
+
       takeAdmissionButton.addEventListener("click", function () {
         event.preventDefault();
         var apiUrl1 = "http://localhost/GYM_API/index.php/user/addCustomer";
@@ -87,7 +89,7 @@ fetch(request)
               amountTotal = temp.fees * duration.value;
             }
           }
-        }
+        }*/
         for (var k = 0; k < arr.length; k++) {
           for (tempOption in option) {
             if (arr[k].fees == tempOption.value) {
@@ -98,7 +100,23 @@ fetch(request)
             }
           }
         }
-*/
+
+        optionInput.addEventListener("click", function () {
+          alert("hi");
+          for (var o = 0; o < arr.length; o++) {
+            var tempIdoption = arr[o].fees;
+
+            var tempElementOption = document.getElementById(
+              tempIdoption.toString()
+            );
+            alert(tempIdoption);
+
+            tempElementOption.addEventListener("click", function () {
+              console.log(tempIdoption);
+              alert(tempIdoption);
+            });
+          }
+        });
 
         // var amountTotal = tempAmount * duration.value;
 
@@ -108,7 +126,7 @@ fetch(request)
           email: email.value,
           amount: 45000,
           duration: duration.value,
-          subscriptionName: clickedElementId,
+          subscriptionName: "temp",
           startingDate: startingDate.value,
         };
 
