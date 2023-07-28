@@ -24,7 +24,7 @@ fetch(request)
         trHtml += "<td>" + element.name + "</td>";
         trHtml += "<td>" + element.email + "</td>";
         trHtml += "<td>" + element.mobileNumber + "</td>";
-        trHtml += "<td>" + element.subscriptionId + "</td>";
+        trHtml += "<td>" + element.subscriptionName + "</td>";
         trHtml += "<td>" + element.duration + "</td>";
         trHtml += "<td>" + element.amount + "</td>";
         trHtml += "</tr>";
