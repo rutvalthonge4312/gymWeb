@@ -9,7 +9,7 @@ var takeAdmissionButton = document.getElementById("takeAdmissionButton");
 var subscriptionName = document.getElementById("subscriptionName");
 var option = document.getElementsByTagName("option");
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// Example starter JavaScript for disabling form . if there are invalid fields
 (() => {
   "use strict";
 
