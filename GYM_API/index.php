@@ -63,5 +63,12 @@ if ((isset($uri[3]) && $uri[3] == 'user') && isset($uri[4]) && $uri[4] == 'list'
                         $objFeedController = new UserController();
                         $strMethodName = $uri[4] . 'Action';
                         $objFeedController->{$strMethodName}();
-                     }
+                     } else
+                        if ((isset($uri[3]) && $uri[3] == 'user') && isset($uri[4]) && $uri[4] == 'addSubscription') {
+
+                           require PROJECT_ROOT_PATH . "/Controller/Api/UserController.php";
+                           $objFeedController = new UserController();
+                           $strMethodName = $uri[4] . 'Action';
+                           $objFeedController->{$strMethodName}();
+                        }
 ?>

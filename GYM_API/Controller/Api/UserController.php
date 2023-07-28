@@ -324,6 +324,73 @@ class UserController extends BaseController
         }
     }
 
+    public function addSubscriptionAction()
+    {
+        $strErrorDesc = '';
+        $requestMethod = $_SERVER["REQUEST_METHOD"];
+
+        // echo print_r($_SERVER);
+        if (strtoupper($requestMethod) == 'POST') {
+            try {
+                $userModel = new UserModel();
+                $name;
+                $desc1;
+                $desc2;
+                $desc3;
+                $desc4;
+                $desc5;
+                $desc6;
+                $desc7;
+                $desc8;
+                $fees;
+
+                if ((isset($_POST['name1']) && $_POST['name1']) && (isset($_POST['desc1']) && $_POST['desc1']) && (isset($_POST['desc2']) && $_POST['desc2']) && (isset($_POST['desc3']) && $_POST['desc3']) && (isset($_POST['desc4']) && $_POST['desc4']) && (isset($_POST['desc5']) && $_POST['desc5']) && (isset($_POST['desc6']) && $_POST['desc6']) && (isset($_POST['desc7']) && $_POST['desc7']) && (isset($_POST['desc8']) && $_POST['desc8']) && (isset($_POST['fees']) && $_POST['fees'])) {
+                    $name = $_POST['name1'];
+                    $desc1 = $_POST['desc1'];
+                    $desc2 = $_POST['desc2'];
+                    $desc3 = $_POST['desc3'];
+                    $desc4 = $_POST['desc4'];
+                    $desc5 = $_POST['desc5'];
+                    $desc6 = $_POST['desc6'];
+                    $desc7 = $_POST['desc7'];
+                    $desc8 = $_POST['desc8'];
+                    $fees = $_POST['fees'];
+
+                    if ($name && $desc1 && $desc2 && $desc3 && $desc4 && $desc5 && $desc6 && $desc7 && $desc8 && $fees) {
+                        $arrUsers = $userModel->addSubscription($name, $desc1, $desc2, $desc3, $desc4, $desc5, $desc6, $desc7, $desc8, $fees);
+                        if ($arrUsers) {
+                            $responseData = '{"status":200,"message":"Subscription Added Successfully","data":' . json_encode($arrUsers) . '}';
+                        } else {
+                            $strErrorDesc = 'User Credentials Wrong';
+                            $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';
+                        }
+                    }
+                } else {
+                    $strErrorDesc = 'Please enter credentials';
+                    $strErrorHeader = 'HTTP/1.1 200 OK';
+                }
+            } catch (Error $e) {
+                $strErrorDesc = $e->getMessage() . 'Something went wrong! Please contact support.';
+                $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+            }
+        } else {
+            $strErrorDesc = 'Method not supported';
+            $strErrorHeader = 'HTTP/1.1 422 Unprocessable Entity';
+        }
+        // send output 
+        if (!$strErrorDesc) {
+            $this->sendOutput(
+                $responseData,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+            );
+        } else {
+            $this->sendOutput(
+                json_encode(array('error' => $strErrorDesc)),
+                array('Content-Type: application/json', $strErrorHeader)
+            );
+        }
+    }
+
 
     public function removeStudentAction()
     {

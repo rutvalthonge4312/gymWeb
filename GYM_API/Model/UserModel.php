@@ -28,6 +28,10 @@ class UserModel extends Database
     {
         return $this->insert("insert into customer (name,email,mobileNumber,amount,duration,subscriptionName,startingDate) values ('$name','$email',$mobileNumber,$amount,'$duration','$subscriptionName','$startingDate')");
     }
+    public function addSubscription($name, $desc1, $desc2, $desc3, $desc4, $desc5, $desc6, $desc7, $desc8, $fees)
+    {
+        return $this->insert("insert into subscription (name,desc1,desc2,desc3,desc4,desc5,desc6,desc7,desc8,fees) values('$name','$desc1','$desc2','$desc3','$desc4','$desc5','$desc6','$desc7','$desc8',$fees)");
+    }
 
     public function removeStudent($roll)
     {
