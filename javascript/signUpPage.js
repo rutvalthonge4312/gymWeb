@@ -146,7 +146,6 @@ fetch(request)
           },
           body: body,
         });
-
         fetch(request1)
           .then((response) => response.json())
           .then((responseJson) => {
