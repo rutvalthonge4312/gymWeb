@@ -115,7 +115,7 @@ fetch(request)
         }*/
 
         for (var l = 0; l < 8; l++) {
-          var base = `desc${l}`;
+          var base = `desc${l + 1}`;
           console.log(typeof base);
           let listText = document.createTextNode(arr[i][base]);
           li.appendChild(listText);

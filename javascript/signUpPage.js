@@ -54,7 +54,7 @@ fetch(request)
       // console.log(arr[0]);
       responseJson.data.forEach((element) => {
         let option = document.createElement("option");
-        option.setAttribute("id", element.fees);
+        option.setAttribute("fees", element.fees);
 
         option.setAttribute("class", "optionsInSub");
         option.setAttribute("value", element.name);
@@ -68,6 +68,9 @@ fetch(request)
       optionInput.addEventListener("click", function () {
         let children = optionInput.children;
         console.log(optionInput.options[optionInput.selectedIndex].value);
+        console.log(
+          optionInput.options[optionInput.selectedIndex].getAttribute("fees")
+        );
       });
     }
     takeAdmissionButton.addEventListener("click", function () {
@@ -80,7 +83,7 @@ fetch(request)
         email: email.value,
         amount:
           duration.value *
-          parseInt(optionInput.options[optionInput.selectedIndex].id),
+          optionInput.options[optionInput.selectedIndex].getAttribute("fees"),
         duration: duration.value,
         subscriptionName: optionInput.options[optionInput.selectedIndex].value,
         startingDate: startingDate.value,

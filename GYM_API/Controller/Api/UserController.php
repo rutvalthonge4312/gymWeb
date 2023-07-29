@@ -219,24 +219,33 @@ class UserController extends BaseController
                 $salary;
                 $position;
                 $address;
+                $info;
 
-                if ((isset($_POST['name']) && $_POST['name']) && (isset($_POST['email']) && $_POST['email']) && (isset($_POST['mobileNumber']) && $_POST['mobileNumber']) && (isset($_POST['salary']) && $_POST['salary']) && (isset($_POST['position']) && $_POST['position']) && (isset($_POST['address']) && $_POST['address'])) {
+                if ((isset($_POST['name']) && $_POST['name']) && (isset($_POST['email']) && $_POST['email']) && (isset($_POST['mobileNumber']) && $_POST['mobileNumber']) && (isset($_POST['salary']) && $_POST['salary']) && (isset($_POST['position']) && $_POST['position']) && (isset($_POST['address']) && $_POST['address']) && (isset($_POST['info']) && $_POST['info'])) {
                     $name = $_POST['name'];
                     $email = $_POST['email'];
                     $mobileNumber = $_POST['mobileNumber'];
                     $salary = $_POST['salary'];
                     $position = $_POST['position'];
                     $address = $_POST['address'];
-
-                    if ($name && $email && $mobileNumber && $salary && $position && $address) {
-                        $arrUsers = $userModel->addStaff($name, $email, $mobileNumber, $salary, $position, $address);
-                        if ($arrUsers) {
-                            $responseData = '{"status":200,"message":"Staff Added Successfully","data":' . json_encode($arrUsers) . '}';
-                        } else {
-                            $strErrorDesc = 'User Credentials Wrong';
-                            $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';
+                    $info = $_POST['info'];
+                    $folder = "C://xampp//htdocs//GYM_API//uploads/";
+                    $path = $folder . basename($_FILES['file']['name']);
+                    if (move_uploaded_file($_FILES['file']['tmp_name'], $path)) {
+                        if ($name && $email && $mobileNumber && $salary && $position && $address && $info) {
+                            $arrUsers = $userModel->addStaff($name, $email, $mobileNumber, $salary, $position, $address, $info, basename($_FILES['file']['name']));
+                            if ($arrUsers) {
+                                $responseData = '{"status":200,"message":"Staff Added Successfully","data":' . json_encode($arrUsers) . '}';
+                            } else {
+                                $strErrorDesc = 'User Credentials Wrong';
+                                $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';
+                            }
                         }
+                    } else {
+                        echo "There was an error uploading the file, please try again!";
                     }
+
+
                 } else {
                     $strErrorDesc = 'Please enter credentials';
                     $strErrorHeader = 'HTTP/1.1 200 OK';

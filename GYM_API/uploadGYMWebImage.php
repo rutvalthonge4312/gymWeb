@@ -1,5 +1,5 @@
 <?php
-$folder = "C:\xampp\htdocs\uploads";
+$folder = "C://xampp//htdocs//GYM_API//uploads/";
 $path = $folder . basename($_FILES['file']['name']);
 if (move_uploaded_file($_FILES['file']['tmp_name'], $path)) {
     echo "The file " . basename(

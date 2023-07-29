@@ -20,9 +20,9 @@ class UserModel extends Database
     {
         return $this->select("SELECT * FROM loginadmin where username='$username' and password='$password' limit 1");
     }
-    public function addStaff($name, $email, $mobileNumber, $salary, $position, $address)
+    public function addStaff($name, $email, $mobileNumber, $salary, $position, $address, $imagepath, $info)
     {
-        return $this->insert("insert into staff (name,email,mobileNumber,salary,position,address) values ('$name','$email',$mobileNumber,$salary,'$position','$address')");
+        return $this->insert("insert into staff (name,email,mobileNumber,salary,position,address,info,imagepath) values ('$name','$email',$mobileNumber,$salary,'$position','$address','$info','$imagepath')");
     }
     public function addCustomer($name, $email, $mobileNumber, $amount, $duration, $subscriptionName, $startingDate)
     {
