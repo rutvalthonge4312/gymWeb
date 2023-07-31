@@ -139,7 +139,8 @@ p {
 }
 .schedule::before {
   content: "";
-  background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg);
+  background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg)
+    center;
   filter: grayscale(5);
   filter: brightness(0.8);
   position: absolute;
@@ -379,7 +380,8 @@ p {
   }
   .schedule::before {
     content: "";
-    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg);
+    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg)
+      center;
     filter: grayscale(5);
     filter: brightness(0.8);
     position: absolute;
@@ -608,13 +610,15 @@ p {
   }
   .schedule::before {
     content: "";
-    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg);
+    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg)
+      center;
 
     filter: grayscale(5);
     filter: brightness(0.8);
     position: absolute;
-    height: 35%;
+    height: 100%;
     width: 100%;
+
     z-index: -1;
     opacity: 0.8;
   }
@@ -839,7 +843,8 @@ p {
   }
   .schedule::before {
     content: "";
-    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg);
+    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg)
+      center;
     filter: grayscale(5);
     filter: brightness(0.8);
     position: absolute;
