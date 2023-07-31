@@ -379,7 +379,7 @@ p {
   }
   .schedule::before {
     content: "";
-    background: url(/images/gymCardImage3.jpg);
+    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg);
     filter: grayscale(5);
     filter: brightness(0.8);
     position: absolute;
@@ -839,7 +839,7 @@ p {
   }
   .schedule::before {
     content: "";
-    background: url(/images/gymCardImage3.jpg);
+    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg);
     filter: grayscale(5);
     filter: brightness(0.8);
     position: absolute;
