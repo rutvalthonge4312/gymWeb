@@ -65,16 +65,9 @@ function showSlides1(n) {
 var GoToLogInPage = document.getElementById("GoToLogInPage");
 
 GoToLogInPage.addEventListener("click", function () {
-  alert("hi");
-  window.location.href("logInpage.html");
+  var price = document.getElementById("price");
+  price.scrollIntoView();
 });
-var goToLogInPage = document.getElementsByClassName("goToLogInPage");
-
-for (var i = 0; i < goToLogInPage.length; i++) {
-  goToLogInPage[i].addEventListener("click", function () {
-    alert("Clicked");
-  });
-}
 
 //var optionInput = document.getElementById("optionInput");
 
@@ -88,7 +81,7 @@ fetch(request)
     if (responseJson.status == 200) {
       let cardsInPricing = document.getElementById("cardsPricing");
       console.log("hi Data Found!");
-      console.log(responseJson.data);
+
       const arr = [];
       for (var j = 0; j < responseJson.data.length; j++) {
         arr[j] = responseJson.data[j];
@@ -116,7 +109,7 @@ fetch(request)
 
         for (var l = 0; l < 8; l++) {
           var base = `desc${l + 1}`;
-          console.log(typeof base);
+
           let listText = document.createTextNode(arr[i][base]);
           li.appendChild(listText);
           list.appendChild(li);

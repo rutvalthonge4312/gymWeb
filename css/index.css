@@ -15,6 +15,18 @@ h2 {
 p {
   color: white;
 }
+.btn:hover {
+  transform: scale(1.1);
+  background-color: #50878e;
+  transition: all ease-in-out 0.5s;
+}
+.imagesInHead img {
+  filter: drop-shadow(0.5rem 0.5rem 1rem rgb(66, 66, 66));
+}
+a img:hover {
+  transform: translateY(-8px);
+  transition: all ease-in-out 0.5s;
+}
 .pricing .cardsInPricing {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -69,6 +81,7 @@ p {
   aspect-ratio: 3/2;
   object-fit: contain;
 }
+
 .imageBody img {
   filter: drop-shadow(rgba(128, 128, 128, 0.4) 10px 10px 10px);
   margin-top: 2rem;
@@ -126,7 +139,7 @@ p {
 }
 .schedule::before {
   content: "";
-  background: url(/images/gymCardImage3.jpg);
+  background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg);
   filter: grayscale(5);
   filter: brightness(0.8);
   position: absolute;
@@ -802,6 +815,7 @@ p {
   .pricing .cardsInPricing {
     display: flex;
     flex-direction: row;
+    overflow-x: scroll;
   }
 }
 @media screen and (min-width: 800px) and (max-width: 1200px) {
