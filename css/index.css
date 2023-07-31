@@ -595,7 +595,7 @@ p {
   }
   .schedule::before {
     content: "";
-    background: url(/images/gymCardImage3.jpg);
+    background: url(https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg);
 
     filter: grayscale(5);
     filter: brightness(0.8);
@@ -613,7 +613,6 @@ p {
   }
   .cardsInSchedule .cardSchedule {
     color: white;
-    border: 1px solid wheat;
     min-width: 10rem;
     min-height: 15rem;
     padding: 1rem;
