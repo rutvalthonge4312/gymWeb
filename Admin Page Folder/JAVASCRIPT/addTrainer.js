@@ -6,7 +6,9 @@ var salary = document.getElementById("salary");
 var info = document.getElementById("info");
 var addTrainer = document.getElementById("addTrainer");
 var file = document.getElementById("fileInput");
+
 addTrainer.addEventListener("click", function () {
+  console.log(file.value);
   event.preventDefault();
   var apiUrl = "http://localhost/GYM_API/index.php/user/addStaff";
 
