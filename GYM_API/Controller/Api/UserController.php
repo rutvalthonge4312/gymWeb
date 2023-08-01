@@ -208,7 +208,7 @@ class UserController extends BaseController
     {
         $strErrorDesc = '';
         $requestMethod = $_SERVER["REQUEST_METHOD"];
-
+        $requestMethod = 'POST';
         // echo print_r($_SERVER);
         if (strtoupper($requestMethod) == 'POST') {
             try {
@@ -231,9 +231,12 @@ class UserController extends BaseController
                     $info = $_POST['info'];
                     $folder = "C://xampp//htdocs//GYM_API//uploads/";
                     $path = $folder . basename($_FILES['file']['name']);
+                    $imagePath = basename($_FILES['file']['name']);
+
                     if (move_uploaded_file($_FILES['file']['tmp_name'], $path)) {
+
                         if ($name && $email && $mobileNumber && $salary && $position && $address && $info) {
-                            $arrUsers = $userModel->addStaff($name, $email, $mobileNumber, $salary, $position, $address, $info, basename($_FILES['file']['name']));
+                            $arrUsers = $userModel->addStaff($name, $email, $mobileNumber, $salary, $position, $address, $imagePath, $info);
                             if ($arrUsers) {
                                 $responseData = '{"status":200,"message":"Staff Added Successfully","data":' . json_encode($arrUsers) . '}';
                             } else {
@@ -470,6 +473,56 @@ class UserController extends BaseController
                         $arrUsers = $userModel->updatePass($newPass);
                         if ($arrUsers) {
                             $responseData = '{"status":200,"message":"Password Successfully Updated","data":' . json_encode($arrUsers) . '}';
+                        } else {
+                            $strErrorDesc = 'User Credentials Wrong';
+                            $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';
+                        }
+                    }
+                } else {
+                    $strErrorDesc = 'Please enter credentials';
+                    $strErrorHeader = 'HTTP/1.1 200 OK';
+                }
+            } catch (Error $e) {
+                $strErrorDesc = $e->getMessage() . 'Something went wrong! Please contact support.';
+                $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+            }
+        } else {
+            $strErrorDesc = 'Method not supported';
+            $strErrorHeader = 'HTTP/1.1 422 Unprocessable Entity';
+        }
+        // send output 
+        if (!$strErrorDesc) {
+            $this->sendOutput(
+                $responseData,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+            );
+        } else {
+            $this->sendOutput(
+                json_encode(array('error' => $strErrorDesc)),
+                array('Content-Type: application/json', $strErrorHeader)
+            );
+        }
+    }
+    public function updatePricesAction()
+    {
+        $strErrorDesc = '';
+        $requestMethod = $_SERVER["REQUEST_METHOD"];
+
+        // echo print_r($_SERVER);
+        if (strtoupper($requestMethod) == 'POST') {
+            try {
+                $userModel = new UserModel();
+                $newFees;
+                $newName;
+                $name;
+                if ((isset($_POST['newFees']) && $_POST['newName'] && $_POST['name'])) {
+                    $newFees = $_POST['newFees'];
+                    $newName = $_POST['newName'];
+                    $name = $_POST['name'];
+                    if ($newFees && $newName && $name) {
+                        $arrUsers = $userModel->updatePrices($newFees, $newName, $name);
+                        if ($arrUsers) {
+                            $responseData = '{"status":200,"message":"Prices Successfully Updated","data":' . json_encode($arrUsers) . '}';
                         } else {
                             $strErrorDesc = 'User Credentials Wrong';
                             $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';

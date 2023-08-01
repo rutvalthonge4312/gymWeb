@@ -41,4 +41,8 @@ class UserModel extends Database
     {
         return $this->update("update  loginadmin set  password='$newPass'");
     }
+    public function updatePrices($newFees, $newName, $name)
+    {
+        return $this->update("update  subscription set  fees='$newFees' , name='$newName' where name='$name'");
+    }
 }
