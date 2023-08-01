@@ -39,7 +39,7 @@ select {
 }
 
 form {
-  background-image: url("/images/gymCardImage3.jpg");
+  background-image: url("https://rutvalthonge4312.github.io/gymWeb/images/gymCardImage3.jpg");
 
   filter: brightness(90%);
   filter: grayscale(10%);
